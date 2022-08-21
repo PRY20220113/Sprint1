@@ -5,7 +5,7 @@ import org.modelmapper.ModelMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class EnhancedModelMapper extends ModelMapper{
+public class EnhancedModelMapper extends ModelMapper {
 
     public EnhancedModelMapper() {
         super();
@@ -15,3 +15,4 @@ public class EnhancedModelMapper extends ModelMapper{
         return sourceList.stream().map(item -> this.map(item, targetClass)).collect(Collectors.toList());
     }
 }
+
