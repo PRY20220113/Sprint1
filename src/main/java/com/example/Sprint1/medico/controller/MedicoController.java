@@ -18,41 +18,41 @@ import com.example.Sprint1.medico.resource.MedicoResource;
 import com.example.Sprint1.medico.resource.SaveMedicoResource;
 
 @RestController
-@RequestMapping("/api/v1/directors")
+@RequestMapping("/api/v1/medico")
 public class MedicoController {
 
-    private final MedicoService directorService;
+    private final MedicoService medicoService;
 
     private final MedicoMapper mapper;
 
-    public MedicoController(MedicoService directorService, MedicoMapper mapper) {
-        this.directorService = directorService;
+    public MedicoController(MedicoService medicoService, MedicoMapper mapper) {
+        this.medicoService = medicoService;
         this.mapper = mapper;
     }
 
     @GetMapping
     public List<MedicoResource> GetAllMedicos() {
-        return mapper.modelListToResource(directorService.getAllMedicos());
+        return mapper.modelListToResource(medicoService.getAllMedicos());
     }
 
     @GetMapping("{medicoId}")
     public MedicoResource GetMedicoById(@PathVariable("medicoId") Long medicoId) {
-        return mapper.toResource(directorService.getByMedicoId(medicoId));
+        return mapper.toResource(medicoService.getByMedicoId(medicoId));
     }
 
     @PostMapping
     public MedicoResource CreateMedico(@RequestBody SaveMedicoResource request) {
-        return mapper.toResource(directorService.createMedico(mapper.toModel(request)));
+        return mapper.toResource(medicoService.createMedico(mapper.toModel(request)));
     }
 
     @PutMapping("{medicoId}")
     public MedicoResource UpdateMedico(@PathVariable("medicoId") Long medicoId, @RequestBody SaveMedicoResource request) {
-        return mapper.toResource(directorService.updateMedico(medicoId, mapper.toModel(request)));
+        return mapper.toResource(medicoService.updateMedico(medicoId, mapper.toModel(request)));
     }
 
     @DeleteMapping("{medicoId}")
     public ResponseEntity<?> DeleteMedico(@PathVariable("medicoId") Long medicoId) {
-        return directorService.deleteMedico(medicoId);
+        return medicoService.deleteMedico(medicoId);
     }
 
 
