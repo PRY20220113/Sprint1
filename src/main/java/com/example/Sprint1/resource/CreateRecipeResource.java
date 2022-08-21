@@ -16,13 +16,13 @@ public class CreateRecipeResource {
 
     @NotNull
     @Size(max = 1000)
-    private int wight;
+    private String wight;
 
     @NotNull
     @Size(max = 100)
-    private int cant;
+    private String cant;
 
     @NotNull
     @Size(max = 24)
-    private int eachHour;
+    private String eachHour;
 }

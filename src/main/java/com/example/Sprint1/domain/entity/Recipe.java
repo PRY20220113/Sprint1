@@ -28,15 +28,15 @@ public class Recipe {
     @NotNull
     @NotBlank
     @Size(max = 1000)
-    private int wight;
+    private String wight;
 
     @NotNull
     @NotBlank
     @Size(max = 100)
-    private int cant;
+    private String cant;
 
     @NotNull
     @NotBlank
     @Size(max = 24)
-    private int eachHour;
+    private String eachHour;
 }

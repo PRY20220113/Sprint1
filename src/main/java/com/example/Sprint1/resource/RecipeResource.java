@@ -9,7 +9,7 @@ public class RecipeResource {
 
     private long id;
     private String product;
-    private long wight;
-    private long cant;
-    private long eachHour;
+    private String wight;
+    private String cant;
+    private String eachHour;
 }
