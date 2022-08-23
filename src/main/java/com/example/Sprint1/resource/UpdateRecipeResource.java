@@ -15,7 +15,7 @@ public class UpdateRecipeResource {
     private String product;
 
     @NotNull
-    @Size(max = 1000)
+    @Size(max = 5000)
     private String wight;
 
     @NotNull

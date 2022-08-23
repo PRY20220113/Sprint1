@@ -27,7 +27,7 @@ public class Recipe {
 
     @NotNull
     @NotBlank
-    @Size(max = 1000)
+    @Size(max = 5000)
     private String wight;
 
     @NotNull
