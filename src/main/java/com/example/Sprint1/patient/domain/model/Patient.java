@@ -20,12 +20,14 @@ import lombok.NoArgsConstructor;
 import lombok.With;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @With
 @Entity
 @Table(name = "patient")
 public class Patient {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -46,13 +48,11 @@ public class Patient {
     @NotNull
     private String bloodT; //Blood Type
 
-    //@ElementCollection
-    //@CollectionTable(name="listOfUsers")
-    //private List<String> enfCronica = new ArrayList<String>(); //chronic disease
+    @NotNull
+    private String chronicD; //chronic disease
 
-    //@Column
-    //@ElementCollection(targetClass=String.class)
-    //private List<String> allergy;
+    @NotNull
+    private String allergy;
 
     //relationship
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

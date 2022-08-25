@@ -1,5 +1,9 @@
 package com.example.Sprint1.patient.resource;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -24,13 +28,13 @@ public class SavePatientResource {
 
     @NotBlank
     @NotNull
-    private String bloodT; //Blood Type
+    private String bloodT; 
 
-    //@ElementCollection
-    //@CollectionTable(name="listOfUsers")
-    //private List<String> enfCronica = new ArrayList<String>(); //chronic disease
+    @Column
+    @ElementCollection(targetClass=String.class)
+    private List<String> chronicD; 
 
-    //@Column
-    //@ElementCollection(targetClass=String.class)
-    //private List<String> allergy;
+    @Column
+    @ElementCollection(targetClass=String.class)
+    private List<String> allergy;
 }

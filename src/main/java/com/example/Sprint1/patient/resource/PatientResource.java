@@ -1,14 +1,19 @@
 package com.example.Sprint1.patient.resource;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PatientResource {
     private Long id;
     private String name;
     private Integer age;
     private String gener;
-    private String bloodT; //Blood Type
-    //private List<String> enfCronica = new ArrayList<String>(); //chronic disease
-    //private List<String> allergy;
+    private String bloodT; 
+    private String chronicD;
+    private String allergy;
 }
