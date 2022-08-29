@@ -1,4 +1,4 @@
-package com.example.Sprint1.resource;
+package com.example.Sprint1.recipe.resource;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,14 +15,14 @@ public class UpdateRecipeResource {
     private String product;
 
     @NotNull
-    @Size(max = 5000)
-    private String wight;
+    private Integer wight;
 
     @NotNull
-    @Size(max = 100)
-    private String cant;
+    private Integer cant;
 
     @NotNull
-    @Size(max = 24)
-    private String eachHour;
+    private Integer eachHour;
+
+    @NotNull
+    private Integer cantTomas;
 }

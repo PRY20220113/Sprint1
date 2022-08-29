@@ -1,13 +1,15 @@
-package com.example.Sprint1.domain.entity;
+package com.example.Sprint1.recipe.domain.entity;
 
+import com.example.Sprint1.doctor.domain.model.Doctor;
+import com.example.Sprint1.patient.domain.model.Patient;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
-@Getter
-@Setter
+@Data
 @With
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,17 +28,20 @@ public class Recipe {
     private String product;
 
     @NotNull
-    @NotBlank
-    @Size(max = 5000)
-    private String wight;
+    private Integer wight;
 
     @NotNull
-    @NotBlank
-    @Size(max = 100)
-    private String cant;
+    private Integer cant;
 
     @NotNull
-    @NotBlank
-    @Size(max = 24)
-    private String eachHour;
+    private Integer eachHour;
+
+    @NotNull
+    private Integer cantTomas;
+
+    //relationship
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
 }

@@ -1,4 +1,4 @@
-package com.example.Sprint1.mapping;
+package com.example.Sprint1.recipe.mapping;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
