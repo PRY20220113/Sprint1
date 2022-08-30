@@ -41,11 +41,26 @@ public class Doctor {
     @NotBlank
     @Size(max = 50)
     private String surname;
+
     
     @NonNull
     @NotBlank
     @Size(max = 50)
     private String email;
+
+    @NonNull
+    private Integer dni;
+    
+    @NonNull
+    private Integer sfeesNum; //Numero de colegiatura 
+
+    @NonNull
+    private Integer phone;
+
+    @NonNull
+    @NotBlank
+    @Size(max = 120)
+    private String password;
 
     //relation with patient
     @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

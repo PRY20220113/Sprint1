@@ -62,6 +62,10 @@ public class DoctorServiceImpl implements DoctorService {
                             data.withName(request.getName())
                                 .withSurname(request.getSurname())
                                 .withEmail(request.getEmail())
+                                .withDni(request.getDni())
+                                .withSfeesNum(request.getSfeesNum())
+                                .withPhone(request.getPhone())
+                                .withPassword(request.getPassword())
         )).orElseThrow(() -> new ResourceNotFoundException(ENTITY, doctorId));
     }
 

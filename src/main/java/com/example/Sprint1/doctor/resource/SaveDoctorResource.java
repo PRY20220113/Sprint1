@@ -22,4 +22,17 @@ public class SaveDoctorResource {
     @NotBlank
     @Size(max = 50)
     private String email;
+
+    @NonNull
+    private Integer dni;
+    
+    @NonNull
+    private Integer sfeesNum;
+    
+    @NonNull
+    private Integer phone;
+
+    @NonNull
+    @NotBlank
+    private String password;
 }

@@ -30,8 +30,8 @@ public class PatientMapper {
         patient.setGener(resource.getGener());
         patient.setAge(resource.getAge());
         patient.setBloodT(resource.getBloodT());
-        patient.setChronicD(resource.getChronicD().toString().replace("[", "").replace("]", ""));
-        patient.setAllergy(resource.getAllergy().toString().replace("[", "").replace("]", ""));
+        patient.setChronicD(resource.getChronicD().toString().replace("[", "").replace("]", "").replaceAll("\\s+",""));
+        patient.setAllergy(resource.getAllergy().toString().replace("[", "").replace("]", "").replaceAll("\\s+",""));
         return mapper.map(patient, Patient.class);
     }
 }
