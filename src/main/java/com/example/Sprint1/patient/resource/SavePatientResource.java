@@ -13,7 +13,6 @@ import lombok.Data;
 
 @Data
 public class SavePatientResource {
-
     @NotBlank
     @NotNull
     @Size(max = 150)
