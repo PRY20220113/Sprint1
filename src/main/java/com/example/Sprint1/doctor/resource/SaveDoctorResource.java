@@ -34,5 +34,6 @@ public class SaveDoctorResource {
 
     @NonNull
     @NotBlank
+    @Size(max = 120)
     private String password;
 }

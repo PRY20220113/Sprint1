@@ -15,7 +15,7 @@ public class CreateRecipeResource {
     private String product;
 
     @NotNull
-    private Integer wight;
+    private Integer weight;
 
     @NotNull
     private Integer cant;

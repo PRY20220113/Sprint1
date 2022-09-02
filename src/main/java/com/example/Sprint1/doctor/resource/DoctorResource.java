@@ -11,5 +11,4 @@ public class DoctorResource {
     private Integer dni;
     private Integer sfeesNum; 
     private Integer phone;
-    private String password;
 }

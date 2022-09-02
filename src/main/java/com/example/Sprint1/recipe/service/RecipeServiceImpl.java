@@ -72,7 +72,7 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeRepository.findById(recipeId).map(recipe ->
                 recipeRepository.save(
                         recipe.withProduct(request.getProduct())
-                                .withWight(request.getWight())
+                                .withWeight(request.getWeight())
                                 .withCant(request.getCant())
                                 .withEachHour(request.getEachHour())
                                 .withCantTomas(request.getCantTomas()))

@@ -9,7 +9,7 @@ public class RecipeResource {
 
     private long id;
     private String product;
-    private Integer wight;
+    private Integer weight;
     private Integer cant;
     private Integer eachHour;
     private Integer cantTomas;
