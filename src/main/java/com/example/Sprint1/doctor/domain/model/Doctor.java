@@ -42,7 +42,6 @@ public class Doctor {
     @Size(max = 50)
     private String surname;
 
-    
     @NonNull
     @NotBlank
     @Size(max = 50)

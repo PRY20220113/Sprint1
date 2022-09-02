@@ -1,6 +1,5 @@
 package com.example.Sprint1.patient.resource;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

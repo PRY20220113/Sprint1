@@ -27,12 +27,6 @@ public class RecipeMapper implements Serializable{
     }
 
     public Recipe toModel(CreateRecipeResource resource) {
-        Recipe recipe = new Recipe();
-        recipe.setProduct(resource.getProduct());
-        recipe.setWight(resource.getWight());
-        recipe.setCant(resource.getCant());
-        recipe.setEachHour(resource.getEachHour());
-        recipe.setCantTomas(resource.getCantTomas());
         return mapper.map(resource, Recipe.class);
     }
 
