@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Sprint1.doctor.domain.repository.DoctorRepository;
 import com.example.Sprint1.patient.domain.model.Patient;
-import com.example.Sprint1.patient.domain.respository.PatientRepository;
+import com.example.Sprint1.patient.domain.repository.PatientRepository;
 import com.example.Sprint1.patient.domain.service.PatientService;
 import com.example.Sprint1.shared.exception.ResourceNotFoundException;
 import com.example.Sprint1.shared.exception.ResourceValidationException;

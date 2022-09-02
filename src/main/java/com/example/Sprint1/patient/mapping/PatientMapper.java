@@ -2,14 +2,12 @@ package com.example.Sprint1.patient.mapping;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.Sprint1.patient.domain.model.Patient;
 import com.example.Sprint1.patient.resource.PatientResource;
 import com.example.Sprint1.patient.resource.SavePatientResource;
 import com.example.Sprint1.shared.mapping.EnhancedModelMapper;
-
 
 public class PatientMapper {
     @Autowired

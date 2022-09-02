@@ -4,15 +4,16 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
 
-
 @Data
 public class SavePatientResource {
+
     @NotBlank
     @NotNull
     @Size(max = 150)
@@ -27,11 +28,11 @@ public class SavePatientResource {
 
     @NotBlank
     @NotNull
-    private String bloodT; 
+    private String bloodT;
 
     @Column
     @ElementCollection(targetClass=String.class)
-    private List<String> chronicD; 
+    private List<String> chronicD;
 
     @Column
     @ElementCollection(targetClass=String.class)

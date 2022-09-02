@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.Sprint1.patient.domain.model.Patient;
 
 @Service
-public interface PatientService {
+public interface  PatientService {
+
     List<Patient> getAllByDoctorId(Long doctorId);
 
     Patient createPatient(Long doctorId, Patient patient);
