@@ -58,7 +58,7 @@ public class Doctor {
 
     @NonNull
     @NotBlank
-    @Size(max = 120)
+    @Size(max = 8)
     private String password;
 
     //relation with patient

@@ -1,16 +1,11 @@
 package com.example.Sprint1.recipe.api;
 
-import com.example.Sprint1.patient.domain.service.PatientService;
-import com.example.Sprint1.patient.mapping.PatientMapper;
-import com.example.Sprint1.patient.resource.PatientResource;
 import com.example.Sprint1.recipe.domain.service.RecipeService;
 import com.example.Sprint1.recipe.mapping.RecipeMapper;
 import com.example.Sprint1.recipe.resource.CreateRecipeResource;
 import com.example.Sprint1.recipe.resource.RecipeResource;
 import com.example.Sprint1.recipe.resource.UpdateRecipeResource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +26,7 @@ public class RecipeController {
         this.mapper = mapper;
     }
 
-    @GetMapping
+    @GetMapping("recipies")
     public List<RecipeResource> getAllRecipes() {
         return mapper.modelListToResource(recipeService.getAllRecipes());
     }
