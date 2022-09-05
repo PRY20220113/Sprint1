@@ -3,21 +3,26 @@ package com.example.Sprint1.patient.resource;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.With;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PatientResource {
+@With
+public class AuthenticatePatientResource {
     private Long id;
     private String name;
     private Integer age;
     private Long dni;
-    private String email;
+    private String emial;
     private String gener;
-    private String bloodT; 
-    private String chronicD;
+    private String bloodT; //Blood Type
+    private String chronicD; //chronic disease
     private String allergy;
     private List<String> roles;
+    private String token;
 }

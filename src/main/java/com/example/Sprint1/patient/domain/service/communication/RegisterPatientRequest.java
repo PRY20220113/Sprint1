@@ -1,18 +1,20 @@
-package com.example.Sprint1.patient.resource;
+package com.example.Sprint1.patient.domain.service.communication;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class SavePatientResource {  
+@Setter
+@Getter
+public class RegisterPatientRequest {
     @NotBlank
     @NotNull
     @Size(max = 150)
@@ -25,7 +27,7 @@ public class SavePatientResource {
     private Long dni;
 
     @NotNull
-    private String emial;
+    private String email;
 
     @NotBlank
     @NotNull
@@ -35,6 +37,10 @@ public class SavePatientResource {
     @NotNull
     private String bloodT; //Blood Type
 
+    @NotNull
+    @NotBlank
+    private String password;
+
     @Column
     @ElementCollection(targetClass=String.class)
     private List<String> chronicD;
@@ -42,4 +48,7 @@ public class SavePatientResource {
     @Column
     @ElementCollection(targetClass=String.class)
     private List<String> allergy;
+
+    private Set<String> roles;
+
 }

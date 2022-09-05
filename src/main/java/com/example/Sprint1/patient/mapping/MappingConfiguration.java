@@ -3,7 +3,7 @@ package com.example.Sprint1.patient.mapping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration("PatientApiConfiguration")
+@Configuration("PatientMappingConfiguration")
 public class MappingConfiguration {
     @Bean
     public PatientMapper patientMapper() {

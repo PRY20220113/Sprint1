@@ -10,17 +10,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.example.Sprint1.security.domain.model.enumeration.RoleEnum;
+import com.example.Sprint1.shared.domain.model.AuditModel;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.With;
 
-@Entity
-@Table(name="roles")
-@Data
+
+@Getter
+@Setter
+@With
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+@Entity
+@Table(name="roles")
+public class Role extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

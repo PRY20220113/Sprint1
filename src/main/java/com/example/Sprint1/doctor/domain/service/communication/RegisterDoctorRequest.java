@@ -1,4 +1,6 @@
-package com.example.Sprint1.doctor.resource;
+package com.example.Sprint1.doctor.domain.service.communication;
+
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -9,8 +11,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SaveDoctorResource {
-    
+public class RegisterDoctorRequest {
+
     @NotNull
     @NotBlank
     @Size(max = 50)
@@ -35,4 +37,11 @@ public class SaveDoctorResource {
     @NotNull
     private String phone;
 
+    @NotNull
+    @NotBlank
+    @Size(max = 8)
+    private String password;
+
+    private Set<String> roles;
+   
 }

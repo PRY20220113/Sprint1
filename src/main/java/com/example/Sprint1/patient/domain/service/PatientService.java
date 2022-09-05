@@ -1,20 +1,20 @@
 package com.example.Sprint1.patient.domain.service;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.example.Sprint1.patient.domain.model.Patient;
+import com.example.Sprint1.patient.domain.service.communication.RegisterPatientRequest;
+import com.example.Sprint1.security.domain.service.communication.AuthenticateRequest;
 
-@Service
-public interface  PatientService {
 
-    List<Patient> getAllByDoctorId(Long doctorId);
-
-    Patient createPatient(Long doctorId, Patient patient);
-
-    Patient updatePatient(Long patientId, Patient patient);
-
+public interface PatientService extends UserDetailsService {
+    //List<Patient> getAllByDoctorId(Long patientId);
+    //Patient createPatient(Long patientId, Patient patient);
+    Patient getByPatientId(Long patientId);
+    Patient updatePatient(Long patientId, Patient request);
     ResponseEntity<?> deletePatient(Long patientId);
+
+    ResponseEntity<?> authenticate(AuthenticateRequest request);
+    ResponseEntity<?> register(RegisterPatientRequest request);
 }
