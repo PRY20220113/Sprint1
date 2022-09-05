@@ -12,8 +12,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class SavePatientResource {
-
+public class SavePatientResource {  
     @NotBlank
     @NotNull
     @Size(max = 150)
@@ -22,13 +21,19 @@ public class SavePatientResource {
     @NotNull
     private Integer age;
 
+    @NotNull
+    private Long dni;
+
+    @NotNull
+    private String emial;
+
     @NotBlank
     @NotNull
     private String gener;
 
     @NotBlank
     @NotNull
-    private String bloodT;
+    private String bloodT; //Blood Type
 
     @Column
     @ElementCollection(targetClass=String.class)

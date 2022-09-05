@@ -1,39 +1,38 @@
 package com.example.Sprint1.doctor.resource;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class SaveDoctorResource {
-    @NonNull
-    @NotBlank
-    @Size(max = 50)
-    private String name;    
-
-    @NonNull
-    @NotBlank
-    @Size(max = 50)
-    private String surname;
     
-    @NonNull
+    @NotNull
+    @NotBlank
+    @Size(max = 50)
+    private String first_name;    
+
+    @NotNull
+    @NotBlank
+    @Size(max = 50)
+    private String last_name;
+
+    @NotNull
     @NotBlank
     @Size(max = 50)
     private String email;
 
-    @NonNull
-    private Integer dni;
+    @NotNull
+    private Long dni;
     
-    @NonNull
-    private Integer sfeesNum;
-    
-    @NonNull
-    private Integer phone;
+    @NotNull
+    private String sfeesNum; //Numero de colegiatura 
 
-    @NonNull
-    @NotBlank
-    @Size(max = 120)
-    private String password;
+    @NotNull
+    private String phone;
+
 }

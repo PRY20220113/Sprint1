@@ -1,8 +1,10 @@
 package com.example.Sprint1.patient.controller;
 
-import java.util.List;
+import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,39 +15,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Sprint1.patient.domain.service.PatientService;
+import com.example.Sprint1.patient.domain.service.communication.RegisterPatientRequest;
 import com.example.Sprint1.patient.mapping.PatientMapper;
 import com.example.Sprint1.patient.resource.PatientResource;
 import com.example.Sprint1.patient.resource.SavePatientResource;
+import com.example.Sprint1.security.domain.service.communication.AuthenticateRequest;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/patients")
 public class PatientController {
-    private final PatientService patientService;
+    @Autowired
+    private PatientService patientService;
 
-    private final PatientMapper mapper;
+    @Autowired
+    private PatientMapper mapper;
 
-    public PatientController(PatientService patientService, PatientMapper mapper) {
-        this.patientService = patientService;
-        this.mapper = mapper;
+    @GetMapping("{patientId}")
+    @PreAuthorize("hasRole('PATIENT')")
+    public PatientResource GetPatientById(@PathVariable("patientId") Long patientId) {
+        return mapper.toResource(patientService.getByPatientId(patientId));
     }
 
-    @GetMapping("doctor/{doctorId}/patient")
-    public List<PatientResource> GetTeachersByDirectorId(@PathVariable("doctorId") Long doctorId){
-        return mapper.modelListToResource(patientService.getAllByDoctorId(doctorId));
+    @PutMapping("{patientId}")
+    @PreAuthorize("hasRole('PATIENT')")
+    public PatientResource UpdatePatient(@PathVariable("patientId") Long patientId, @RequestBody SavePatientResource request) {
+        return mapper.toResource(patientService.updatePatient(patientId, mapper.toModel(request)));
     }
 
-    @PostMapping("doctor/{doctorId}/patient")
-    public PatientResource CreateTeacher(@PathVariable("doctorId")Long doctorId, @RequestBody SavePatientResource resource){
-        return mapper.toResource(patientService.createPatient(doctorId, mapper.toModel(resource)));
-    }
-
-    @PutMapping("patient/{patientId}")
-    public PatientResource UpdateTeacher(@PathVariable("patientId") Long patientId, @RequestBody SavePatientResource resource){
-        return mapper.toResource(patientService.updatePatient(patientId, mapper.toModel(resource)));
-    }
-
-    @DeleteMapping("patient/{patientId}")
-    public ResponseEntity<?> DeleteTeacher(@PathVariable("patientId") Long patientId){
+    @DeleteMapping("{patientId}")
+    @PreAuthorize("hasRole('PATIENT')")
+    public ResponseEntity<?> DeletePatient(@PathVariable("patientId") Long patientId) {
         return patientService.deletePatient(patientId);
+    }
+
+    @PostMapping("/auth/sign-up")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterPatientRequest request) {
+        return patientService.register(request);
+    }
+
+    @PostMapping("/auth/sign-in")
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody AuthenticateRequest request) {
+        return patientService.authenticate(request);
     }
 }

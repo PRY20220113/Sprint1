@@ -1,67 +1,75 @@
 package com.example.Sprint1.doctor.domain.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.example.Sprint1.patient.domain.model.Patient;
+import com.example.Sprint1.security.domain.model.entity.Role;
+import com.example.Sprint1.shared.domain.model.AuditModel;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.With;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@With
 @NoArgsConstructor
 @AllArgsConstructor
-@With
 @Entity
-@Table(name = "doctor")
-public class Doctor {
+@Table(name = "doctors")
+public class Doctor extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NonNull
+    @NotNull
     @NotBlank
     @Size(max = 50)
-    private String name;    
+    private String first_name;    
 
-    @NonNull
+    @NotNull
     @NotBlank
     @Size(max = 50)
-    private String surname;
+    private String last_name;
 
-    @NonNull
+    @NotNull
     @NotBlank
     @Size(max = 50)
     private String email;
 
-    @NonNull
-    private Integer dni;
+    @NotNull
+    private Long dni;
     
-    @NonNull
-    private Integer sfeesNum; //Numero de colegiatura 
+    @NotNull
+    private String sfeesNum; //Numero de colegiatura 
 
-    @NonNull
-    private Integer phone;
+    @NotNull
+    private String phone;
 
-    @NonNull
+    @NotNull
     @NotBlank
-    @Size(max = 120)
     private String password;
 
     //relation with patient
-    @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Patient> patients;
+    //@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //private List<Patient> patients;
+
+    //relation with role
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "doctor_roles",
+            joinColumns = @JoinColumn(name = "doctor_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 }

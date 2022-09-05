@@ -1,6 +1,5 @@
 package com.example.Sprint1.recipe.service;
 
-import com.example.Sprint1.patient.domain.model.Patient;
 import com.example.Sprint1.patient.domain.repository.PatientRepository;
 import com.example.Sprint1.recipe.domain.entity.Recipe;
 import com.example.Sprint1.recipe.domain.persistence.RecipeRepository;
@@ -8,8 +7,6 @@ import com.example.Sprint1.recipe.domain.service.RecipeService;
 import com.example.Sprint1.shared.exception.ResourceNotFoundException;
 import com.example.Sprint1.shared.exception.ResourceValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

@@ -1,13 +1,11 @@
 package com.example.Sprint1.recipe.domain.entity;
 
-import com.example.Sprint1.doctor.domain.model.Doctor;
 import com.example.Sprint1.patient.domain.model.Patient;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
 @With
