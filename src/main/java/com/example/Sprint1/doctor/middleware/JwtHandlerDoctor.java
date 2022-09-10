@@ -27,11 +27,11 @@ public class JwtHandlerDoctor {
     private int expirationDays;
 
     public String generateToken(Authentication authentication) {
-        String subject = ((DoctorDetailsImpl) authentication.getPrincipal()).getEmail();
+        Long subject = ((DoctorDetailsImpl) authentication.getPrincipal()).getDni();
         Date issuedAt = new Date();
         Date expiration = DateUtils.addDays(issuedAt, expirationDays);
         return Jwts.builder()
-                .setSubject(subject)
+                .setSubject(subject.toString())
                 .setIssuedAt(issuedAt)
                 .setExpiration(expiration)
                 .signWith(SignatureAlgorithm.HS256, secret)
