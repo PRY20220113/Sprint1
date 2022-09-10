@@ -73,6 +73,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authorizationFilterDoctor(), UsernamePasswordAuthenticationFilter.class);
-        http.addFilterBefore(authorizationFilterDoctor(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authorizationFilterPatient(), UsernamePasswordAuthenticationFilter.class);
     }
 }
