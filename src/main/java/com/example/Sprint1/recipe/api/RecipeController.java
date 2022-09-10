@@ -31,7 +31,7 @@ public class RecipeController {
         return mapper.modelListToResource(recipeService.getAllRecipes());
     }
 
-    @GetMapping("{recipeId}")
+    @GetMapping("recipe/{recipeId}")
     public RecipeResource getRecipeById(@PathVariable("recipeId") Long recipeId) {
         return mapper.toResource(recipeService.getRecipeById(recipeId));
     }

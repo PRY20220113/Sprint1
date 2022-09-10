@@ -18,7 +18,7 @@ public class AuthenticatePatientResource {
     private String name;
     private Integer age;
     private Long dni;
-    private String emial;
+    private String email;
     private String gener;
     private String bloodT; //Blood Type
     private String chronicD; //chronic disease

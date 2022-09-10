@@ -25,7 +25,7 @@ public class SavePatientResource {
     private Long dni;
 
     @NotNull
-    private String emial;
+    private String email;
 
     @NotBlank
     @NotNull
