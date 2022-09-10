@@ -31,19 +31,19 @@ public class PatientController {
     private PatientMapper mapper;
 
     @GetMapping("{patientId}")
-    @PreAuthorize("hasRole('PATIENT')")
+    @PreAuthorize("hasRole('PATIENT') or hasRole('DOCTOR')")
     public PatientResource GetPatientById(@PathVariable("patientId") Long patientId) {
         return mapper.toResource(patientService.getByPatientId(patientId));
     }
 
     @PutMapping("{patientId}")
-    @PreAuthorize("hasRole('PATIENT')")
+    @PreAuthorize("hasRole('PATIENT') or hasRole('DOCTOR')")
     public PatientResource UpdatePatient(@PathVariable("patientId") Long patientId, @RequestBody SavePatientResource request) {
         return mapper.toResource(patientService.updatePatient(patientId, mapper.toModel(request)));
     }
 
     @DeleteMapping("{patientId}")
-    @PreAuthorize("hasRole('PATIENT')")
+    @PreAuthorize("hasRole('PATIENT') or hasRole('DOCTOR')")
     public ResponseEntity<?> DeletePatient(@PathVariable("patientId") Long patientId) {
         return patientService.deletePatient(patientId);
     }
